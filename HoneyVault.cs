@@ -19,12 +19,12 @@ namespace BeehiveManagementSystem
             if (amount >= nectar){ amount = nectar; }
                 
             nectar -= amount;
-            honey = amount * NECTAR_CONVERSION_RATIO;
+            honey += amount * NECTAR_CONVERSION_RATIO;
         }
 
         public static bool ConsumeHoney(float amount)
         {
-            if (amount < honey)
+            if (amount <= honey)
             {
                 honey -= amount;
                 return true;
@@ -34,7 +34,7 @@ namespace BeehiveManagementSystem
 
         public static void CollectNectar(float amount)
         {
-            if (amount > 0)
+            if (amount > 0f)
             {
                 nectar += amount;
             }
@@ -46,8 +46,8 @@ namespace BeehiveManagementSystem
             {
                 string honeyWarning = "";
                 string nectarWarning = "";
-                if (honey < LOW_LEVEL_WARNING) { honeyWarning = "LOW HONEY - ADD A HONEY MANUFACTURER"; }
-                if (nectar < LOW_LEVEL_WARNING) { nectarWarning = "LOW NECTAR - ADD A HONEY MANUFACTURER"; }
+                if (honey < LOW_LEVEL_WARNING) { honeyWarning = "\nLOW HONEY - ADD A HONEY MANUFACTURER"; }
+                if (nectar < LOW_LEVEL_WARNING) { nectarWarning = "\nLOW NECTAR - ADD A HONEY MANUFACTURER"; }
 
 
                 return $"Honey: {honey} {honeyWarning} \nNectar: {nectar} {nectarWarning}";

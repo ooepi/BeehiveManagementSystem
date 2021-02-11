@@ -9,17 +9,11 @@ namespace BeehiveManagementSystem
     class NectarCollector : Bee
     {
         const float NECTAR_COLLECTED_PER_SHIFT = 33.25f;
-        const float COST_PER_SHIFT = 1.95f;
-
-        private Queen queen;
-        public NectarCollector(Queen queen) : base("NectarCollector")
-        {
-
-        }
+        public override float CostPerShift { get { return 1.95f; } }
+        public NectarCollector() : base("NectarCollector") { }
 
         protected override void DoJob()
         {
-            HoneyVault.ConsumeHoney(COST_PER_SHIFT);
             HoneyVault.CollectNectar(NECTAR_COLLECTED_PER_SHIFT);
         }
     }

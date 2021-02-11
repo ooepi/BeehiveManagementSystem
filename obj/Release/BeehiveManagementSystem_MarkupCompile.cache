@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\rober\OneDrive\projects\cs\BeehiveManagementSystem\BeehiveManagementSystem\obj\Debug\
+C:\Users\rober\OneDrive\projects\cs\BeehiveManagementSystem\BeehiveManagementSystem\obj\Release\
 BeehiveManagementSystem
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\rober\OneDrive\projects\cs\BeehiveManagementSystem\BeehiveManagementSystem\App.xaml
 11151548125
 
@@ -16,5 +16,5 @@ C:\Users\rober\OneDrive\projects\cs\BeehiveManagementSystem\BeehiveManagementSys
 13-1505183044
 MainWindow.xaml;
 
-False
+True
 

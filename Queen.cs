@@ -19,9 +19,12 @@ namespace BeehiveManagementSystem
 
         }
 
-        private Bee[] workers;
-        private float unassignedWorkers;
-        private float eggs;
+        private Bee[] workers = new Bee[0];
+        private float unassignedWorkers = 3;
+        private float eggs = 0;
+
+        public string StatusReport { get; private set; }
+        public override float CostPerShift { get { return 2.15f; } }
 
 
         private void AddWorker(Bee worker)
@@ -34,7 +37,7 @@ namespace BeehiveManagementSystem
             }
         }
 
-        private void AssignBee(string job)
+        public void AssignBee(string job)
         {
             switch (job)
             {
@@ -42,12 +45,10 @@ namespace BeehiveManagementSystem
                     AddWorker(new EggCare(this));
                     break;
                 case "Nectar Collector":
-                    AddWorker(new NectarCollector(this));
+                    AddWorker(new NectarCollector());
                     break;
                 case "Honey Manufacturer":
-                    AddWorker(new HoneyManufacturer(this));
-                    break;
-                default:
+                    AddWorker(new HoneyManufacturer());
                     break;
             }
 
@@ -63,14 +64,18 @@ namespace BeehiveManagementSystem
                 worker.WorkTheNextShift();
             }
 
-            HoneyVault.ConsumeHoney(HONEY_PER_UNASSIGNED_WORKER * workers.Length);
+            HoneyVault.ConsumeHoney(HONEY_PER_UNASSIGNED_WORKER * unassignedWorkers);
             UpdateStatusReport();
         }
 
-        private string UpdateStatusReport()
+        private void UpdateStatusReport()
         {
-            return HoneyVault.StatusReport;
+            StatusReport = $"Vault report:\n{HoneyVault.StatusReport}\n" +
+            $"\nEgg count: {eggs:0.0}\nUnassigned workers: {unassignedWorkers:0.0}\n" +
+            $"{WorkerStatus("Nectar Collector")}\n{WorkerStatus("Honey Manufacturer")}" +
+            $"\n{WorkerStatus("Egg Care")}\nTOTAL WORKERS: {workers.Length}";
         }
+
 
         public void CareForEggs(float eggsToConvert)
         {
@@ -80,6 +85,20 @@ namespace BeehiveManagementSystem
                 unassignedWorkers += eggsToConvert;
             }
         }
+
+        private string WorkerStatus(string job)
+        {
+            int count = 0;
+            foreach (Bee worker in workers)
+            {
+                if (worker.Job == job) count++;
+            }
+            string s = "s";
+            if (count == 1) s = "";
+            return $"{count} {job} bee{s}";
+        }
+
+
 
     }
 }

@@ -15,7 +15,7 @@ namespace BeehiveManagementSystem
 
         public string Job { get; private set; }
 
-        virtual public float CostPerShift { get; private set; }
+        virtual public float CostPerShift { get;}
 
         virtual public void WorkTheNextShift()
         {

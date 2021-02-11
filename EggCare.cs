@@ -15,7 +15,7 @@ namespace BeehiveManagementSystem
         private Queen queen;
         public EggCare(Queen queen) : base("Egg Care")
         {
-
+            this.queen = queen;
         }
 
         protected override void DoJob()
