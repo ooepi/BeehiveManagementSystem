@@ -47,7 +47,7 @@ namespace BeehiveManagementSystem
                 string honeyWarning = "";
                 string nectarWarning = "";
                 if (honey < LOW_LEVEL_WARNING) { honeyWarning = "\nLOW HONEY - ADD A HONEY MANUFACTURER"; }
-                if (nectar < LOW_LEVEL_WARNING) { nectarWarning = "\nLOW NECTAR - ADD A HONEY MANUFACTURER"; }
+                if (nectar < LOW_LEVEL_WARNING) { nectarWarning = "\nLOW NECTAR - ADD A NECTAR COLLECTOR"; }
 
 
                 return $"Honey: {honey} {honeyWarning} \nNectar: {nectar} {nectarWarning}";

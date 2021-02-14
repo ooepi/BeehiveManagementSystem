@@ -19,7 +19,7 @@ namespace BeehiveManagementSystem
 
         }
 
-        private Bee[] workers = new Bee[0];
+        private IWorker[] workers = new IWorker[0];
         private float unassignedWorkers = 3;
         private float eggs = 0;
 
@@ -27,7 +27,7 @@ namespace BeehiveManagementSystem
         public override float CostPerShift { get { return 2.15f; } }
 
 
-        private void AddWorker(Bee worker)
+        private void AddWorker(IWorker worker)
         {
             if (unassignedWorkers >= 1)
             {
@@ -59,7 +59,7 @@ namespace BeehiveManagementSystem
         {
             eggs += EGGS_PER_SHIFT;
 
-            foreach (Bee worker in workers)
+            foreach (IWorker worker in workers)
             {
                 worker.WorkTheNextShift();
             }
@@ -89,7 +89,7 @@ namespace BeehiveManagementSystem
         private string WorkerStatus(string job)
         {
             int count = 0;
-            foreach (Bee worker in workers)
+            foreach (NectarCollector worker in workers)
             {
                 if (worker.Job == job) count++;
             }

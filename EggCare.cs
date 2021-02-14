@@ -10,7 +10,8 @@ namespace BeehiveManagementSystem
     {
 
         const float CARE_PROGRESS_PER_SHIFT = 0.15f;
-        const float COST_PER_SHIFT = 1.35f;
+
+        public override float CostPerShift { get { return 1.35f; } }
 
         private Queen queen;
         public EggCare(Queen queen) : base("Egg Care")
@@ -21,7 +22,6 @@ namespace BeehiveManagementSystem
         protected override void DoJob()
         {
             queen.CareForEggs(CARE_PROGRESS_PER_SHIFT);
-            HoneyVault.ConsumeHoney(COST_PER_SHIFT);
         }
     }
 }
