@@ -13,3 +13,4 @@ C:\Users\rober\OneDrive\projects\cs\BeehiveManagementSystem\BeehiveManagementSys
 C:\Users\rober\OneDrive\projects\cs\BeehiveManagementSystem\BeehiveManagementSystem\obj\Debug\BeehiveManagementSystem.csproj.CoreCompileInputs.cache
 C:\Users\rober\OneDrive\projects\cs\BeehiveManagementSystem\BeehiveManagementSystem\obj\Debug\BeehiveManagementSystem.exe
 C:\Users\rober\OneDrive\projects\cs\BeehiveManagementSystem\BeehiveManagementSystem\obj\Debug\BeehiveManagementSystem.pdb
+C:\Users\rober\OneDrive\projects\cs\BeehiveManagementSystem\BeehiveManagementSystem\obj\Debug\GeneratedInternalTypeHelper.g.cs
